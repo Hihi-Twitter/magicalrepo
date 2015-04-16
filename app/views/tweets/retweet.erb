@@ -1,0 +1,39 @@
+<%= erb :"partails/top" %>
+
+<div class="container" id="body">
+<%= erb :"tweets/left_side" %>
+	<div class="col-md-6">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <div class="col-md-2">
+		    	<img class="top-timeline-tweet-box-user-image avatar size32" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+		    </div>
+		    <div class="col-md-10">
+				<form action="/new" method="POST" class="form-herizatal form">
+					<div class="form-group">
+						<textarea class="form-control" name="content"></textarea>
+					</div>
+					<input type="submit" value="Tweet" class="btn btn-success">
+				</form>
+		    </div>
+		    <div class="clear-both"></div>
+		    <% message = session[:message] %>
+		    <% session.delete(:message) %>
+		    <% if message %>
+		    <% css_class_msg = message[:success] ? "success" : "warning" %>
+		    <div class="alert alert-<%= css_class_msg %>" role="alert"><%= message[:message] %></div>
+		    <% end %>
+		  </div>
+		  <div class="panel-body">
+		    
+		  	
+
+		  </div>
+		</div>
+
+
+		
+
+	</div>
+<%= erb :"tweets/right_side" %>
+</div>
