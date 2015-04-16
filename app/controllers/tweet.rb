@@ -4,10 +4,10 @@ post '/tweet' do
 	@tweet.user_id = 1
 	if @tweet.save
 		session[:message] = {success: true, message: "Success!"}
-		redirect '/tweet/new'
+		redirect '/'
 	else
 		session[:message] = {success: false, message: "Error! Tweet allows 140 characters only."}
-		redirect '/tweet/new'
+		redirect '/'
 	end
 end
 
