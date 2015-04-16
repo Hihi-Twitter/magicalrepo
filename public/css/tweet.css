@@ -1,0 +1,20 @@
+body {
+	background-color: #8EC1DA;
+}
+/*#body {
+	margin-top: 70px;
+}
+
+.navbar-inverse-own {
+  background-color: #EAE9E9;
+  border-color: #A8A5A5;
+}
+.navbar-inverse .navbar-nav>.active>a, 
+.navbar-inverse .navbar-nav>.active>a:focus, 
+.navbar-inverse .navbar-nav>.active>a:hover {
+  color: #fff;
+  background-color: #76ADA0;
+}*/
+.clear-both {
+	clear: both;
+}
