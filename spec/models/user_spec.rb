@@ -19,4 +19,7 @@ describe User do
   it "has a handle" do
     should validate_presence_of(:handle)
   end
+  it "has a name column" do
+    should have_db_column(:name)
+  end
 end
