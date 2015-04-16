@@ -1,0 +1,21 @@
+
+<h1>Your Profile</h1>
+
+
+<% @user.find_by(email: params[:email]) %>
+
+<%= @user.name %>
+<%= @user.email %>
+
+<br></br>
+<%= @user.tweets.all %> 
+
+
+
+
+
+
+
+
+
+
