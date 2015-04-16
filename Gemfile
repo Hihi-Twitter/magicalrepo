@@ -18,6 +18,8 @@ gem 'shotgun'
 gem 'bcrypt'
 gem 'scrypt'
 
+gem 'sanitize'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
