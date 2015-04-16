@@ -1,0 +1,56 @@
+<%= erb :"partails/top" %>
+
+<div class="container" id="body">
+<%= erb :"tweets/left_side" %>
+	<div class="col-md-6">
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <div class="col-md-2">
+		    	<img class="top-timeline-tweet-box-user-image avatar size32" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+		    </div>
+		    <div class="col-md-10">
+		    	<!-- <div class="input-group">
+				  <span class="input-group-addon glyphicon glyphicon-camera" ID="sizing-addon1"> </span>
+				  <input type="TEXT" class="form-control" placeholder="What is your news?" aria-describedby="sizing-addon1">
+				</div> -->
+				<form action="/tweet/new" method="POST" class="form-herizatal form">
+					<div class="form-group">
+						<textarea class="form-control" name="content"></textarea>
+					</div>
+					<input type="submit" value="Tweet" class="btn btn-success">
+				</form>
+		    </div>
+		    <div class="clear-both"></div>
+		  </div>
+		  <div class="panel-body">
+		    
+		  	<div class="media">
+			  <div class="media-left media-middle">
+			    <a href="#">
+			      <!-- <img class="media-object" src="..." alt="..."> -->
+			      <img class="media-object" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h4 class="media-heading">Facker</h4>
+			    <p>If you tell me the truth, I'm gonna be mad but ill get over it. If you lie to me I'm never gonna be able to trust you again. Your choice!</p>
+
+			    <span class="label label-info">Retweet</span>
+				<span class="label label-info">Reply</span>
+				<!-- <span class="label label-success">SUCCESS</span>
+				<span class="label label-info">Info</span>
+				<span class="label label-warning">Warning</span>
+				<span class="label label-danger">Danger</span> -->
+
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+
+
+		
+
+	</div>
+<%= erb :"tweets/right_side" %>
+</div>
