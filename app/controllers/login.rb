@@ -2,7 +2,9 @@ require 'sanitize'
 
 get '/' do
   if session[:id]
-    erb :feed
+    @title = "Welcome to Tweet"
+    @tweets = Tweet.includes(:user).all
+    erb :"tweets/tweet"
   else
     erb :signin
   end

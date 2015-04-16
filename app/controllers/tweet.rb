@@ -1,12 +1,4 @@
-get '/tweet/new' do
-	@title = "Welcome to Tweet"
-	# current_user_id = session[:id]
-	current_user_id = 1
-	@tweets = Tweet.includes(:user).all
-	erb :"tweets/tweet"
-end
-
-post '/new' do
+post '/tweet' do
 	@tweet = Tweet.new(content: params[:content])
 	# @tweet.user_id = session[:id]
 	@tweet.user_id = 1
