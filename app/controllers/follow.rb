@@ -11,7 +11,7 @@ end
 
 delete '/follow' do
   current_user = User.find(session[:id])
-  unfollow = User.find(params[:user_to_follow])
+  unfollow = User.find(params[:user_to_unfollow])
   unfollow.followers.delete(current_user)
   redirect '/users'
 end
