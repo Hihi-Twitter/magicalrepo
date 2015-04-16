@@ -4,8 +4,7 @@ get '/' do
   if session[:id]
     @title = "Welcome to Tweet"
     user = User.find(session[:id])
-    @tweets = user.tweets
-    @tweets << user.followees.map { |followee| followee.tweets }.flatten
+    @tweets = user.tweets + user.followees.map { |followee| followee.tweets }.flatten
     erb :"tweets/tweet"
   else
     erb :signin
