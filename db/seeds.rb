@@ -4,4 +4,3 @@ user = User.new(handle: 'harriet', name: 'harriet', email: 'hsemckinnon@gmail.co
 user.save
 piet = User.new(handle: 'piet',name: 'piet', email: 'piet@gmail.com', password: 'password', password_confirmation: 'password')
 piet.save
-

@@ -1,4 +1,5 @@
 class Tweet < ActiveRecord::Base
-  # Remember to create a migration!
-  validates_presence_of :content
+	belongs_to :user
+	validates :content, presence: true, length: { maximum: 140 }
+	
 end
