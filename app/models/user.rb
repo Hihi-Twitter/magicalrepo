@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 
     has_many :follower_follows, class_name: 'Follow', foreign_key: 'follower_id'
     has_many :followees, class_name: 'User', through: :follower_follows
+    has_many :tweets
 end

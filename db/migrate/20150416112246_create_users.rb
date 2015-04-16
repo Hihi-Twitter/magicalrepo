@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :handle
       t.references :followers
       t.references :following
+      # t.references :tweets
     end
   end
 end
