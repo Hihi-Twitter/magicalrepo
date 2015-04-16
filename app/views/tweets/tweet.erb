@@ -13,7 +13,7 @@
 				  <span class="input-group-addon glyphicon glyphicon-camera" ID="sizing-addon1"> </span>
 				  <input type="TEXT" class="form-control" placeholder="What is your news?" aria-describedby="sizing-addon1">
 				</div> -->
-				<form action="/tweet/new" method="POST" class="form-herizatal form">
+				<form action="/new" method="POST" class="form-herizatal form">
 					<div class="form-group">
 						<textarea class="form-control" name="content"></textarea>
 					</div>
@@ -21,6 +21,12 @@
 				</form>
 		    </div>
 		    <div class="clear-both"></div>
+		    <% message = session[:message] %>
+		    <% session.delete(:message) %>
+		    <% if message %>
+		    <% css_class_msg = message[:success] ? "success" : "warning" %>
+		    <div class="alert alert-<%= css_class_msg %>" role="alert"><%= message[:message] %></div>
+		    <% end %>
 		  </div>
 		  <div class="panel-body">
 		    
@@ -28,7 +34,7 @@
 			  <div class="media-left media-middle">
 			    <a href="#">
 			      <!-- <img class="media-object" src="..." alt="..."> -->
-			      <img class="media-object" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+			      <img class="media-object" src="https://pbs.twimg.com/profile_images/3669044632/8177070479aeb345d84745272ed1b614_normal.jpeg" alt="">
 			    </a>
 			  </div>
 			  <div class="media-body">
@@ -44,6 +50,35 @@
 
 			  </div>
 			</div>
+
+			<% @tweets.each do |tweet| %>
+			<% user = User.find_by_id(1) %>
+				<div class="media">
+				  <div class="media-left media-middle">
+				    <a href="#">
+				      <img class="media-object" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media-heading"><%= user.name %></h4>
+				    <p><%= tweet.content %></p>
+
+				    <% if tweet.user_id == user.id %>
+				    <a href="/retweet/<%= tweet.id %>" class="btn retweet" disabled>
+				    <% else %>
+				    <a href="/retweet/<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" class="btn">
+				    <% end %>
+				    	<span class="label label-info">Retweet</span>
+				    </a>
+					<span class="label label-info">Reply</span>
+					<!-- <span class="label label-success">SUCCESS</span>
+					<span class="label label-info">Info</span>
+					<span class="label label-warning">Warning</span>
+					<span class="label label-danger">Danger</span> -->
+
+				  </div>
+				</div>
+			<% end %>
 
 		  </div>
 		</div>
