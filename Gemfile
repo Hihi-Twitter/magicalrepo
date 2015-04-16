@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'pg'
 
 # Sinatra driver
-gem 'rack', '1.5.2'
+gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
@@ -17,6 +17,8 @@ gem 'shotgun'
 
 gem 'bcrypt'
 gem 'scrypt'
+
+gem 'sanitize'
 
 group :test do
   gem 'shoulda-matchers'
