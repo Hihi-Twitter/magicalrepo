@@ -11,6 +11,11 @@ get '/signup' do
 end
 
 post '/signup' do
+  user = User.new(name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation] )
+  user.save
+  if user
+    session[:id] = user.id
+  end
   redirect '/'
 end
 
