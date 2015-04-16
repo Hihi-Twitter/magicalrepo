@@ -22,4 +22,9 @@ post '/signin' do
   redirect '/'
 end
 
+post '/signout' do
+  session[:id] = nil
+  redirect '/'
+end
+
 
