@@ -5,7 +5,7 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   // alert("hello")
-  $(".retweet").click(function(event) {
+  /*$(".retweet").click(function(event) {
   	event.preventDefault();
   	alert("hy")
 	   var tweet_id = $(this).attr('data-tweet-id');
@@ -22,5 +22,5 @@ $(document).ready(function() {
 	        // this is the bit where you render stuff
 	    }
 	  });
-	});
+	});*/
 });

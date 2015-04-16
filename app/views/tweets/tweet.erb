@@ -52,7 +52,7 @@
 			</div>
 
 			<% @tweets.each do |tweet| %>
-			<% user = User.find_by_id(1) %>
+			<% user = User.find_by_id(tweet.user_id) %>
 				<div class="media">
 				  <div class="media-left media-middle">
 				    <a href="#">
@@ -63,18 +63,15 @@
 				    <h4 class="media-heading"><%= user.name %></h4>
 				    <p><%= tweet.content %></p>
 
-				    <% if tweet.user_id == user.id %>
-				    <a href="/retweet/<%= tweet.id %>" class="btn retweet" disabled>
+				    <!--% if tweet.user_id == session[:id] %-->
+				    <% if tweet.user_id == 1 %>
+				    <a href="/retweet/<%= tweet.id %>" class="btn" disabled>
 				    <% else %>
-				    <a href="/retweet/<%= tweet.id %>" data-tweet-id="<%= tweet.id %>" class="btn">
+				    <a href="/retweet/<%= tweet.id %>" class="btn">
 				    <% end %>
 				    	<span class="label label-info">Retweet</span>
 				    </a>
 					<span class="label label-info">Reply</span>
-					<!-- <span class="label label-success">SUCCESS</span>
-					<span class="label label-info">Info</span>
-					<span class="label label-warning">Warning</span>
-					<span class="label label-danger">Danger</span> -->
 
 				  </div>
 				</div>

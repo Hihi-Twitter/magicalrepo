@@ -9,17 +9,22 @@ end
 post '/new' do
 	@tweet = Tweet.new(content: params[:content])
 	# @tweet.user_id = session[:id]
-	@tweet.user_id = 2
+	@tweet.user_id = 1
 	if @tweet.save
 		session[:message] = {success: true, message: "Success!"}
 		redirect '/tweet/new'
 	else
-		session[:message] = {success: false, message: "Error"}
+		session[:message] = {success: false, message: "Error! Tweet allows 140 characters only."}
 		redirect '/tweet/new'
 	end
 end
 
-post '/retweet' do
+get '/retweet/:id' do
+	@title = "Retweet!"
+	erb :"tweets/retweet"
+end
+
+post '/retweet/:id' do
 	tweet = Tweet.find_by_id(params[:id])
 	# user = User.find_by_id(tweet.user_id)
 	tweet.count_retweet = tweet.count_retweet + 1
