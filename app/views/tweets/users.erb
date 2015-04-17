@@ -18,13 +18,14 @@
 				        <p><b>@<%= user.name %></b> follows you!</p>
 				        <p>
 				        <form action="/follow" method="POST" class="navbar-form navbar-left">
-				        	<input type="hidden" name="user_to_follow" value=<%= user.id %> />
-				        	<a href="/follow" class="btn btn-sm btn-info" role="button">Follow</a>
+				        	<input type="hidden" name="id" value=<%= user.id %>>
+				        	<input type="submit" value="Follow">
 				        </form>
-				        <form action="/follow" method="DELETE" class="navbar-form navbar-left">
-				        	<input type="hidden" name="user_to_unfollow" value=<%= user.id %> />
-				        	<a href="/unfollow" class="btn btn-sm btn-danger" role="button">Unfollow</a>
-				        </form>
+								<form action="/unfollow" method='post'>
+								  <input type="hidden" name="id" value=<%= user.id %>>
+								  <input type="submit" value="Unfollow">
+								</form>
+
 				        </p>
 				      </div>
 				      <div class="clear-both"></div>
