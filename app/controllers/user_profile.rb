@@ -11,17 +11,21 @@ end
 
 #This is to edit/update profile page 
 put '/profile' do
+	@user = User.find_by_id(session[:id])
 	if params[:name] != nil
-	@user.name = params[:name]
+		@user.name = params[:name]
 	end
 	
 	if params[:email] != nil
-	@user.email = params[:email]
+		@user.email = params[:email]
 	end
+	
+	if @user.save
+		redirect '/'
+	else
 
-	@user.save!
-
-redirect '/profile' #with a flash message or all.tweets
+	redirect '/profile' #with a flash message or all.tweets
+end
 end
 
 #Do we want to redirect or post a flash message
@@ -31,10 +35,12 @@ end
 
 delete '/profile/:id' do 
 	if session[:id]
-		user.find_by(id: session[:id])
-		user.destroy
+		@user.find_by(id: session[:id])
+		if @user.destroy
+			redirect '/'
+		end
 	end
-	redirect '/'
+	# redirect '/'
 end
 
 

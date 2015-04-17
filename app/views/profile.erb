@@ -1,22 +1,31 @@
+<%= erb :"partails/top" %>
+
 
 <h1>Your Profile</h1>
 
 <!-- this is the form that renders fields and so that a user can update or delete -->
 
-
-
-<form action="/profile" method="put" name="<%=@user.name%>"><br>
-	  <input type'hidden' 	name='method' value='delete'><br>
-	  <input type="text"    name= 'name' placeholder="<%=@user.name%>"><br>
-	  <input type="text"    name= 'email' placeholder="<%=@user.email%>"><br>
-	  <input type="submit"  name="Update Profile"<br> 
+<!-- Image Placeholder  -->
+<form action="/profile" method="POST" name="<%=@user.name%>"><br>
+	<input type='hidden' name='_method' value='put' />
+	  <input type="text"    name= 'name' value=<%= @user.name %> placeholder="<%= @user.name %>"><br>
+	  <input type="text"    name= 'email' value=<%= @user.email %> placeholder="<%= @user.email %>"><br>
+	  <input type="submit"  name="Update Profile"><br> 
 </form>
+
+<form action="/te" method="DELETE">
+
+</form>
+
+
+
+
 
 <!-- Need a delete button  -->
 
 
-
-
+ <!-- <input type'hidden' 	name='method' value='delete'><br>
+ -->
 
 
 
