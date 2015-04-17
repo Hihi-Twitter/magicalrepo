@@ -1,27 +1,18 @@
 
 <h1>Your Profile</h1>
 
-
-<% @user.find_by(email: params[:email]) %>
-
-<%= @user.name %>
-<%= @user.email %>
-
-<br></br>
-<%= @user.tweets.all %> 
-
-
-
 <!-- this is the form that renders fields and so that a user can update or delete -->
 
-<form action="/update_profile" method="put" name="#{@user.name}">
-	  <input type'hidden' 	name='_method' value='delete'>
-	  <input type="text"    name= 'email' placeholder="#{@user.email}"><br>
-	  <input type="text"    name= 'username' placeholder="#{@user.username}"><br>
-	  <input type="text"    name= 'password' placeholder="#{@user.password}"><br>
-	  <input type="text"    placeholder="#{@user.name}"><br>
-	  <input type="submit"  name="Update Profile"><br>
+
+
+<form action="/profile" method="put" name="<%=@user.name%>"><br>
+	  <input type'hidden' 	name='method' value='delete'><br>
+	  <input type="text"    name= 'name' placeholder="<%=@user.name%>"><br>
+	  <input type="text"    name= 'email' placeholder="<%=@user.email%>"><br>
+	  <input type="submit"  name="Update Profile"<br> 
 </form>
+
+<!-- Need a delete button  -->
 
 
 

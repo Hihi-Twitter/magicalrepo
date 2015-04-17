@@ -2,47 +2,42 @@
 # Change from user profile to profile  
 
 get '/profile' do
-	
+	@user = User.find_by(id: session[:id])
 erb :profile
 end
 ##############################################f
 
 
 
+#This is to edit/update profile page 
+put '/profile' do
+	if params[:name] != nil
+	@user.name = params[:name]
+	end
+	
+	if params[:email] != nil
+	@user.email = params[:email]
+	end
 
-put '/update_profile' do
-@user.find_by(email: params[:email])
+	@user.save!
 
-erb :update_profile
-redirect '/user_profile'
+redirect '/profile' #with a flash message or all.tweets
+end
+
+#Do we want to redirect or post a flash message
+##############################################
+
+# We need to redirect to a confirmation page after delete/destroy
+
+delete '/profile/:id' do 
+	if session[:id]
+		user.find_by(id: session[:id])
+		user.destroy
+	end
+	redirect '/'
 end
 
 
-#put the delete logic into the view
-
-# delete '/delete_profile/:id' do 
-# 	@user.find_by(email: params[:email])
-# 	@user.destroy
-
-# end
-
-
-
-
-# post "/users/sign_up" do
-#   user = User.new(username: params[:username], password: params[:password])
- 
-#   if passwords_do_not_match
-#     @flash = "Passwords must match."
-#     erb :sign_up
-#   elsif user.save
-#     session[:user_id] = user.id
-#     redirect "/"
-#   else
-#     @flash = user.errors.messages
-#     erb :sign_up
-#   end
-# end
 
 
 
