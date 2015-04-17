@@ -32,11 +32,5 @@ post '/retweet/:id' do
 	redirect '/'
 end
 
-get '/users' do
-	@title = "All User!"
-	@users = User.all
-
-	erb :"tweets/users"
-end
 
 
