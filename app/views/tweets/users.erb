@@ -15,7 +15,7 @@
 				      </div>
 				      <div class="caption">
 				        <h4><%= user.name %></h4>
-				        <p><b>@<%= user.name %></b> follows you!</p>
+				        <p><b>@<%= user.handle %></b></p>
 				        <p>
 									<form action="/unfollow" method='post' class="navbar-form navbar-left">
 									  <input type="hidden" name="id" value=<%= user.id %>>
