@@ -1,7 +1,7 @@
 <%= erb :"partails/top" %>
 
 
-<h1>Your Profile</h1>
+<h1>Update Your Profile</h1>
 
 <!-- this is the form that renders fields and so that a user can update or delete -->
 
@@ -10,7 +10,7 @@
 	<input type='hidden' name='_method' value='put' />
 	  <input type="text"    name= 'name' value=<%= @user.name %> placeholder="<%= @user.name %>"><br>
 	  <input type="text"    name= 'email' value=<%= @user.email %> placeholder="<%= @user.email %>"><br>
-	  <input type="submit"  name="Update Profile"><br> 
+	  <input type="submit"  value="Update Profile"><br>
 </form>
 
 <form action="/te" method="DELETE">
