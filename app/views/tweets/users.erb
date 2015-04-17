@@ -6,23 +6,31 @@
 			<div class="row">
 
 			<% @users.each do |user| %>
+			<% if user.id != session[:id] %>
 				<div class="col-sm-6 col-md-4">
 				    <div class="thumbnail">
 				      <img src="https://pbs.twimg.com/profile_banners/14749606/1426271254/600x200" alt="...">
+				      <div>
+				      	<img class="media-object pull-right" src="https://pbs.twimg.com/profile_images/530159680342224896/egeTCqVA_normal.jpeg" alt="">
+				      </div>
 				      <div class="caption">
 				        <h4><%= user.name %></h4>
-				        <p><b>@<%= user.name %></b> is following you!</p>
+				        <p><b>@<%= user.name %></b> follows you!</p>
 				        <p>
-				        <form action="/follow" method="POST">
-				        	<a href="/follow" class="btn btn-info" role="button">Follow</a>
+				        <form action="/follow" method="POST" class="navbar-form navbar-left">
+				        	<input type="hidden" name="user_to_follow" value=<%= user.id %> />
+				        	<a href="/follow" class="btn btn-sm btn-info" role="button">Follow</a>
 				        </form>
-				        <form action="/follow" method="DELETE">
-				        <a href="/unfollow" class="btn btn-danger" role="button">Unfollow</a>
+				        <form action="/follow" method="DELETE" class="navbar-form navbar-left">
+				        	<input type="hidden" name="user_to_unfollow" value=<%= user.id %> />
+				        	<a href="/unfollow" class="btn btn-sm btn-danger" role="button">Unfollow</a>
 				        </form>
 				        </p>
 				      </div>
+				      <div class="clear-both"></div>
 				    </div>
-				  </div>
+				</div>
+			<% end %>
 			<% end %>
 
 			</div>
