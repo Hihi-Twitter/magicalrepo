@@ -13,7 +13,7 @@
 				  <span class="input-group-addon glyphicon glyphicon-camera" ID="sizing-addon1"> </span>
 				  <input type="TEXT" class="form-control" placeholder="What is your news?" aria-describedby="sizing-addon1">
 				</div> -->
-				<form action="/new" method="POST" class="form-herizatal form">
+				<form action="/tweet" method="POST" class="form-herizatal form">
 					<div class="form-group">
 						<textarea class="form-control" name="content"></textarea>
 					</div>
@@ -29,7 +29,6 @@
 		    <% end %>
 		  </div>
 		  <div class="panel-body">
-
 			<% @tweets.each do |tweet| %>
 			<% user = User.find_by_id(tweet.user_id) %>
 				<div class="media">
@@ -51,17 +50,11 @@
 				    	<span class="badge"><%= tweet.count_retweet %></span>
 				    </a>
 					<span class="label label-info">Reply</span>
-
 				  </div>
 				</div>
 			<% end %>
-
 		  </div>
 		</div>
-
-
-		
-
 	</div>
 <%= erb :"tweets/right_side" %>
 </div>
