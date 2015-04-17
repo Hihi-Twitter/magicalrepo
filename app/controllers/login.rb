@@ -3,10 +3,16 @@ require 'sanitize'
 get '/' do
   if session[:id]
     @title = "Welcome to Tweet"
-    user = User.find(session[:id])
-    @tweets = user.tweets + user.followees.map { |followee| followee.tweets }.flatten
-    @tweets.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
-    erb :"tweets/tweet"
+    begin
+      user = User.find(session[:id])
+      @tweets = user.tweets + user.followees.map { |followee| followee.tweets }.flatten
+      @tweets.sort! { |a, b| a.created_at <=> b.created_at }.reverse!
+      erb :"tweets/tweet"
+    rescue
+      session[:id] = nil
+      erb :signin
+    end
+
   else
     erb :signin
   end
