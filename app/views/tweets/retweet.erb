@@ -5,28 +5,49 @@
 	<div class="col-md-6">
 		<div class="panel panel-info">
 		  <div class="panel-heading">
-		    <div class="col-md-2">
+		    <!-- <div class="col-md-2"> -->
+		    	<!-- <img class="top-timeline-tweet-box-user-image avatar size32" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt=""> -->
+		    <!-- </div> -->
+		    <div class="panel-heading">
+		    	<h3 class="panel-title">Retweet</h3>
+		  	</div>
+		  </div>
+		  <div class="panel-body">
+
+			<div class="col-md-2">
 		    	<img class="top-timeline-tweet-box-user-image avatar size32" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
 		    </div>
 		    <div class="col-md-10">
-				<form action="/new" method="POST" class="form-herizatal form">
-					<div class="form-group">
-						<textarea class="form-control" name="content"></textarea>
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				    <div class="media">
+					  <div class="media-left media-middle">
+					    <a href="#">
+					      <img class="media-object" src="https://pbs.twimg.com/profile_images/530159680342224896/egeTCqVA_normal.jpeg" alt="">
+					    </a>
+					  </div>
+					  <div class="media-body">
+					    <h5 class="media-heading"><%= @user.name %></h5>
+					    <p><%= @tweet.content %></p>
+						<% if @tweet.user_id == session[:id] %>
+					    <a href="/retweet/<%= @tweet.id %>" class="btn" disabled>
+					    <% else %>
+					    <a href="/retweet/<%= @tweet.id %>" class="btn">
+					    <% end %>
+					    	<span class="label label-info">Retweet</span>
+					    	<span class="badge"><%= @tweet.count_retweet %></span>
+					    </a>
+						<span class="label label-info">Reply</span>
+
+					  </div>
 					</div>
-					<input type="submit" value="Tweet" class="btn btn-success">
+				  </div>
+				</div>
+				<form action="/retweet/<%= @tweet.id %>" method="POST" class="form-herizontal form">
+					<input type="submit" value="Retweet" class="btn btn-xs btn-success">
 				</form>
 		    </div>
 		    <div class="clear-both"></div>
-		    <% message = session[:message] %>
-		    <% session.delete(:message) %>
-		    <% if message %>
-		    <% css_class_msg = message[:success] ? "success" : "warning" %>
-		    <div class="alert alert-<%= css_class_msg %>" role="alert"><%= message[:message] %></div>
-		    <% end %>
-		  </div>
-		  <div class="panel-body">
-		    
-		  	
 
 		  </div>
 		</div>
