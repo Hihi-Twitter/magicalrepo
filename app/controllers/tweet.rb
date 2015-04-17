@@ -1,21 +1,13 @@
-get '/tweet/new' do
-	@title = "Welcome to Tweet"
-	# current_user_id = session[:id]
-	current_user_id = 1
-	@tweets = Tweet.includes(:user).all
-	erb :"tweets/tweet"
-end
-
-post '/new' do
+post '/tweet' do
 	@tweet = Tweet.new(content: params[:content])
 	# @tweet.user_id = session[:id]
 	@tweet.user_id = 1
 	if @tweet.save
 		session[:message] = {success: true, message: "Success!"}
-		redirect '/tweet/new'
+		redirect '/'
 	else
 		session[:message] = {success: false, message: "Error! Tweet allows 140 characters only."}
-		redirect '/tweet/new'
+		redirect '/'
 	end
 end
 
