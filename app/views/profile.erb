@@ -1,34 +1,39 @@
 <%= erb :"partails/top" %>
 
+<div class="row">
 
-<h1>Update Your Profile</h1>
-
-<!-- this is the form that renders fields and so that a user can update or delete -->
-
-<!-- Image Placeholder  -->
-<form action="/profile" method="POST" name="<%=@user.name%>"><br>
-	<input type='hidden' name='_method' value='put' />
-	  <input type="text"    name= 'name' value=<%= @user.name %> placeholder="<%= @user.name %>"><br>
-	  <input type="text"    name= 'email' value=<%= @user.email %> placeholder="<%= @user.email %>"><br>
-	  <input type="submit"  value="Update Profile"><br>
-</form>
-
-<form action="/te" method="DELETE">
-
-</form>
+	<div class="col-sm-12 col-md-12">
+	    <div class="thumbnail">
+	      <img src="https://pbs.twimg.com/profile_banners/14749606/1426271254/1500x500" alt="...">
+	      <div>
+	      	<img class="media-object pull-right" src=<%= @user.gravatar_url %> alt="">
+	      </div>
+	      <div class="caption">
+	        <h4><%= @user.name %></h4>
+	        <p><b>@<%= @user.handle %></b></p>
 
 
+			<h1>Update Your Profile</h1>
 
+			<!-- this is the form that renders fields and so that a user can update or delete -->
 
+			<!-- Image Placeholder  -->
+			<form action="/profile" method="POST" name="<%=@user.name%>" class="form-inlined"><br>
+				<input type='hidden' name='_method' value='put' />
+				<div class="form-group">
+					<input type="text" class="form-control" name= 'name' value=<%= @user.name %> placeholder="<%= @user.name %>">
+				</div>
+				<div class="form-group">
+				  <input type="text" class="form-control" name= 'email' value=<%= @user.email %> placeholder="<%= @user.email %>">
+				</div>
+				  <input type="submit" class="btn btn-info btn-sm" value="Update Profile"><br>
+			</form>
 
-<!-- Need a delete button  -->
+	      </div>
+	      <div class="clear-both"></div>
+	    </div>
+	</div>
 
-
- <!-- <input type'hidden' 	name='method' value='delete'><br>
- -->
-
-
-
-
+</div>
 
 
