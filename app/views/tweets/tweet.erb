@@ -1,12 +1,13 @@
 <%= erb :"partails/top" %>
 
 <div class="container" id="body">
-<%= erb :"tweets/left_side" %>
-	<div class="col-md-6">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
 		<div class="panel panel-info">
 		  <div class="panel-heading">
 		    <div class="col-md-2">
-		    	<img class="top-timeline-tweet-box-user-image avatar size32" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+		    	<% current_user = User.find_by_id(session[:id]) %>
+		    	<img class="top-timeline-tweet-box-user-image avatar size32" src=<%= current_user.gravatar_url %> alt="">
 		    </div>
 		    <div class="col-md-10">
 		    	<!-- <div class="input-group">
@@ -34,7 +35,7 @@
 				<div class="media">
 				  <div class="media-left media-middle">
 				    <a href="#">
-				      <img class="media-object" src="https://pbs.twimg.com/profile_images/2466767557/Capture_normal.PNG" alt="">
+				      <img class="media-object" src=<%= user.gravatar_url %> alt="">
 				    </a>
 				  </div>
 				  <div class="media-body">
@@ -56,5 +57,5 @@
 		  </div>
 		</div>
 	</div>
-<%= erb :"tweets/right_side" %>
+<div class="col-md-2"></div>
 </div>
