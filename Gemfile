@@ -31,3 +31,5 @@ end
   gem 'factory_girl'
   gem 'faker'
 
+gem 'gravtastic'
+
