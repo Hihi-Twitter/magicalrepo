@@ -1,6 +1,14 @@
 get '/users' do
   @title = "All Users!"
   @users = User.all
+  # @users.each do
+  #   if user.followers.include?(session[:id])
+  #    @follow = true
+  #   else
+  #     @follow = false
+  #   end
+  # end
+
 
   erb :"tweets/users"
 end

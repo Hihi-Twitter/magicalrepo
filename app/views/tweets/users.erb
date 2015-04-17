@@ -17,14 +17,14 @@
 				        <h4><%= user.name %></h4>
 				        <p><b>@<%= user.name %></b> follows you!</p>
 				        <p>
-				        <form action="/follow" method="POST" class="navbar-form navbar-left">
-				        	<input type="hidden" name="id" value=<%= user.id %>>
-				        	<input type="submit" value="Follow">
-				        </form>
-								<form action="/unfollow" method='post'>
-								  <input type="hidden" name="id" value=<%= user.id %>>
-								  <input type="submit" value="Unfollow">
-								</form>
+									<form action="/unfollow" method='post' class="navbar-form navbar-left">
+									  <input type="hidden" name="id" value=<%= user.id %>>
+									  <input type="submit" value="Unfollow">
+									</form>
+									<form action="/follow" method="POST" class="navbar-form navbar-left">
+										<input type="hidden" name="id" value=<%= user.id %>>
+										<input type="submit" value="Follow">
+									</form>
 
 				        </p>
 				      </div>
