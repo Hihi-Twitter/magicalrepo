@@ -1,7 +1,6 @@
 post '/tweet' do
 	@tweet = Tweet.new(content: params[:content])
-	# @tweet.user_id = session[:id]
-	@tweet.user_id = 1
+	@tweet.user_id = session[:id]
 	if @tweet.save
 		session[:message] = {success: true, message: "Success!"}
 		redirect '/'
