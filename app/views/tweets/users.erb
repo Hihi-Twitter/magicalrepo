@@ -1,0 +1,32 @@
+<%= erb :"partails/top" %>
+
+<div class="container" id="body">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row">
+
+			<% @users.each do |user| %>
+				<div class="col-sm-6 col-md-4">
+				    <div class="thumbnail">
+				      <img src="https://pbs.twimg.com/profile_banners/14749606/1426271254/600x200" alt="...">
+				      <div class="caption">
+				        <h4><%= user.name %></h4>
+				        <p><b>@<%= user.name %></b> is following you!</p>
+				        <p>
+				        <form action="/follow" method="POST">
+				        	<a href="/follow" class="btn btn-info" role="button">Follow</a>
+				        </form>
+				        <form action="/follow" method="DELETE">
+				        <a href="/unfollow" class="btn btn-danger" role="button">Unfollow</a>
+				        </form>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+			<% end %>
+
+			</div>
+		</div>
+	<%= erb :"tweets/right_side" %>
+	</div>
+</div>
